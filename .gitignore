@@ -1,0 +1,17 @@
+node_modules/
+dist/
+test-results/
+.browser-profile/
+*.log
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
+
+# Keep generated screenshots, traces and local failure dumps on this machine.
+verification/*
+!verification/browser-results.json
+!verification/run-1.json
+!verification/run-2.json
+src/destruction/tests/*-results.json

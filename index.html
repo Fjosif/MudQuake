@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101613" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>MUDQUAKE — Země v pohybu</title>
+  </head>
+  <body>
+    <main id="app">
+      <div id="viewport" aria-label="Interaktivní simulace zemětřesení"></div>
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="MUDQUAKE, úvod"><span class="mark">≋</span> MUDQUAKE<span class="version">01</span></a>
+        <span class="edition">ZEMĚ V POHYBU<span>INTERAKTIVNÍ SIMULACE</span></span>
+      </header>
+      <aside class="telemetry" aria-label="Stav vykreslování">
+        <span class="live-dot"></span><span id="backend">INICIALIZACE</span>
+        <strong id="fps">—<small> FPS</small></strong><span id="resolutionLabel">2560 × 1440</span>
+      </aside>
+      <section class="scene-caption"><span class="eyebrow">VENKOVSKÁ KRAJINA / SILNÝ DÉŠŤ</span><h1>Klid před otřesy.</h1><p id="phaseDescription">Projděte se. Prohlédněte si dům. Potom dejte zemi pohyb.</p></section>
+      <div class="crosshair" aria-hidden="true">+</div>
+      <div id="loading" role="status"><span class="loader"></span><strong id="loadingText">Připravuji krajinu a konstrukci…</strong><span>WebGPU · fyzika 60 Hz · procedurální prostředí</span></div>
+      <section class="console">
+        <div class="sequence"><span id="phaseLabel">PŘIPRAVENO</span><div class="track"><div id="progress"></div><i style="left:12%"></i><i style="left:24%"></i><i style="left:36%"></i><i style="left:48%"></i><i style="left:68%"></i></div><span id="clock">00.00 <small>/ 25 s</small></span></div>
+        <div class="toolbar">
+          <div class="actions"><button id="quake" class="primary" disabled><span>▶</span> Spustit zemětřesení <kbd>MEZERNÍK</kbd></button><button id="walk" title="Chůze WASD, myší se rozhlížíte">⌖ <span>Procházet scénu</span></button><button id="reset" disabled title="Obnovit dům, prostředí i fyziku">↺ <span>Reset</span><kbd>R</kbd></button><button id="pause" disabled>Ⅱ <span>Pauza</span><kbd>P</kbd></button></div>
+          <div class="settings"><label>OBRAZ<select id="resolution"><option value="auto" selected>Auto · 60 FPS</option><option value="1440">1440p</option><option value="1080">1080p</option><option value="native">Okno</option></select></label><label>DETAIL<select id="quality"><option value="low">Nízký</option><option value="medium">Střední</option><option value="high" selected>Vysoký</option><option value="ultra">Ultra</option></select></label><button id="audio" aria-pressed="false" title="Zapnout prostorový zvuk">♫ <span>Zvuk vypnutý</span></button><button id="fullscreen" title="Celá obrazovka">⛶</button></div>
+        </div>
+        <div class="footerline"><span><kbd>W A S D</kbd> chůze <b>·</b> <kbd>SHIFT</kbd> rychleji <b>·</b> klik do scény: rozhlížení <b>·</b> <kbd>ESC</kbd> uvolnit myš</span><button id="download" class="text-button" disabled>Stáhnout měření ↗</button></div>
+      </section>
+      <div id="notice" role="status" aria-live="polite"></div>
+      <details class="diagnostics"><summary>Měření a konstrukce</summary><div id="diagnostics">Připravuji…</div></details>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

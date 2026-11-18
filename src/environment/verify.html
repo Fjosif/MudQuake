@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUDQUAKE – Environment Verification Harness</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #14181e;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: #e2e8f0;
+      }
+      #hud {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 10;
+        background: rgba(15, 20, 26, 0.78);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 12px;
+        line-height: 1.5;
+        min-width: 260px;
+      }
+      #hud h1 {
+        margin: 0 0 6px;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #93c5fd;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+      button,
+      select {
+        background: #1e293b;
+        color: #f1f5f9;
+        border: 1px solid #475569;
+        border-radius: 4px;
+        padding: 4px 8px;
+        font-size: 11px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #334155;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <h1>MUDQUAKE – Environment Verify</h1>
+      <div id="stats">Initializing WebGPURenderer...</div>
+      <div class="controls">
+        <select id="qualitySelect">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high" selected>High</option>
+          <option value="ultra">Ultra</option>
+        </select>
+        <button id="quakeBtn">Trigger Quake</button>
+        <button id="impactBtn">Debris Splash</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+      <div style="margin-top: 6px; opacity: 0.75">
+        Drag to orbit · WASD to walk terrain
+      </div>
+    </div>
+    <script type="module" src="/src/environment/verify.ts"></script>
+  </body>
+</html>
